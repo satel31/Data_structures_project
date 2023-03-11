@@ -10,17 +10,12 @@ class Node:
         self.data = data
         self.next_node = next_node
 
-    def setNext(self, next_):
-        self.next_node = next_
-
-
 class Stack:
     """Класс для стека"""
-    data_stack = []
 
     def __init__(self):
         """Конструктор класса Stack"""
-        self.head = None
+        self.top = None
 
     def push(self, data):
         """
@@ -28,11 +23,8 @@ class Stack:
 
         :param data: данные, которые будут добавлены на вершину стека
         """
-        temp = Node(data)
-        temp.setNext(self.head)
-        self.head = temp
-
-        self.data_stack.append(data)
+        self.temp = Node(data, self.top)
+        self.top = self.temp
 
     def pop(self):
         """
@@ -40,8 +32,6 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        return self.data_stack.pop()
-
-    @property
-    def top(self):
-        return self.head
+        deleted_element = self.temp.data
+        self.top = self.temp.next_node
+        return deleted_element

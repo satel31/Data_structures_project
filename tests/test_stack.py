@@ -12,24 +12,16 @@ class TestNode(unittest.TestCase):
         self.assertIs(self.data_t.next_node, 10)
         self.assertIsNone(self.data_n.next_node)
 
-    def test_setNext(self):
-        self.data_t.setNext(13)
-        self.assertIs(self.data_t.next_node, 13)
-
 
 class TestSteck(unittest.TestCase):
     def test_stack_init(self):
         data_s = Stack()
-        self.assertIsNone(data_s.head)
+        self.assertIsNone(data_s.top)
 
     def test_push(self):
         data_s = Stack()
         data_s.push(5)
-        self.assertIsNot(data_s.head, None)
-
-    def test_top(self):
-        data_s = Stack()
-        self.assertIsNone(data_s.top)
+        self.assertIsNot(data_s.top, None)
 
     def test_pop(self):
         stack = Stack()
