@@ -23,8 +23,7 @@ class Stack:
 
         :param data: данные, которые будут добавлены на вершину стека
         """
-        self.temp = Node(data, self.top)
-        self.top = self.temp
+        self.top = Node(data, self.top)
 
     def pop(self):
         """
@@ -32,6 +31,6 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        deleted_element = self.temp.data
-        self.top = self.temp.next_node
+        deleted_element = self.top.data
+        self.top = self.top.next_node
         return deleted_element
