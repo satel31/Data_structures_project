@@ -41,6 +41,12 @@ class Queue:
 
         :return: данные удаленного элемента
         """
+        if self.length == 0:
+            return None
+        first = self.head.data
+        self.head = self.head.next_node
+        self.length -= 1
+        return first
         pass
 
     def __str__(self) -> str:
