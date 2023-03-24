@@ -47,7 +47,6 @@ class Queue:
         self.head = self.head.next_node
         self.length -= 1
         return first
-        pass
 
     def __str__(self) -> str:
         """Магический метод для строкового представления объекта"""
