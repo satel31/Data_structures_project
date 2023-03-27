@@ -1,18 +1,43 @@
 class Node:
     """Класс для узла односвязного списка"""
-    pass
+
+    def __init__(self, data: dict, next_node=None) -> None:
+        """
+        Конструктор класса Node
+
+        :param data: данные, которые будут храниться в узле
+        """
+        self.data = data
+        self.next_node = next_node
 
 
 class LinkedList:
     """Класс для односвязного списка"""
+    def __init__(self) -> None:
+        self.head = None
+        self.tail = None
+        self.length = 0
+
 
     def insert_beginning(self, data: dict) -> None:
         """Принимает данные (словарь) и добавляет узел с этими данными в начало связанного списка"""
-        pass
+        node = Node(data)
+        if self.length == 0:
+            self.head = self.tail = node
+        else:
+            node.next_node = self.head
+            self.head = node
+        self.length += 1
 
     def insert_at_end(self, data: dict) -> None:
         """Принимает данные (словарь) и добавляет узел с этими данными в конец связанного списка"""
-        pass
+        node = Node(data)
+        if self.length == 0:
+            self.head = self.tail = node
+        else:
+            self.tail.next_node = node
+            self.tail = node
+        self.length += 1
 
     def __str__(self) -> str:
         """Вывод данных односвязного списка в строковом представлении"""
@@ -27,3 +52,4 @@ class LinkedList:
 
         ll_string += ' None'
         return ll_string
+
