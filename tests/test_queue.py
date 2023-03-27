@@ -13,6 +13,7 @@ class TestNode(unittest.TestCase):
         self.assertIs(self.data_t.next_node, 10)
         self.assertIsNone(self.data_n.next_node)
 
+
 class TestQueue(unittest.TestCase):
     def test_queue_init(self):
         """Test of init function"""
@@ -46,9 +47,16 @@ class TestQueue(unittest.TestCase):
         data_q.enqueue('data1')
         data_q.enqueue('data2')
         data_q.enqueue('data3')
-        self.assertEqual(str(data_q),"data1\ndata2\ndata3")
+        self.assertEqual(str(data_q), "data1\ndata2\ndata3")
 
+    def test_queue_dequeue(self):
+        """Test of dequeueing"""
+        data_q = Queue()
+        data_q.enqueue('data1')
+        data_q.enqueue('data2')
+        self.assertEqual(data_q.dequeue(), 'data1')
 
-
-
-
+    def test_queue_dequeue_empty(self):
+        """Test of dequeueing the empty queue"""
+        data_q = Queue()
+        self.assertIsNone(data_q.dequeue())
