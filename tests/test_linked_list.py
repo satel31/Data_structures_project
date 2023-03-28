@@ -61,9 +61,9 @@ class TestLinkedList(unittest.TestCase):
     def test_ll_str_empty(self):
         """Test of str function with empty list"""
         ll = LinkedList()
-        self.assertIsNone(str(ll))
+        self.assertEqual(str(ll), "None")
 
-    def test_ll_str_empty(self):
+    def test_ll_str_not_empty(self):
         """Test of str function with not empty list"""
         ll = LinkedList()
         ll.insert_beginning({'id': 1})
