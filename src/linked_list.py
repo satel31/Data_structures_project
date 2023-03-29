@@ -66,6 +66,8 @@ class LinkedList:
         """Возвращает первый найденный в LinkedList словарь с ключом 'id'"""
         data = self.to_list()
         for d in data:
-            if d['id'] == id_key:
-                return d
-
+            try:
+                if d['id'] == id_key:
+                    return d
+            except TypeError:
+                print("Данные не являются словарем или в словаре нет id.")
