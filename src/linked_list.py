@@ -62,4 +62,10 @@ class LinkedList:
             node = node.next_node
         return ll_list
 
+    def get_data_by_id(self, id_key) -> dict:
+        """Возвращает первый найденный в LinkedList словарь с ключом 'id'"""
+        data = self.to_list()
+        for d in data:
+            if d['id'] == id_key:
+                return d
 
