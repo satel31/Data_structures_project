@@ -53,3 +53,13 @@ class LinkedList:
         ll_string += ' None'
         return ll_string
 
+    def to_list(self) -> list:
+        """Возвращает список с данными, содержащимися в односвязном списке LinkedList"""
+        node = self.head
+        ll_list = []
+        while node:
+            ll_list.append(node.data)
+            node = node.next_node
+        return ll_list
+
+
