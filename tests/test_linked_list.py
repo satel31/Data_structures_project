@@ -71,3 +71,29 @@ class TestLinkedList(unittest.TestCase):
         ll.insert_at_end({'id': 3})
         ll.insert_beginning({'id': 0})
         self.assertEqual(str(ll), " {'id': 0} -> {'id': 1} -> {'id': 2} -> {'id': 3} -> None")
+
+    def test_ll_to_list(self):
+        """Test of to_list function"""
+        ll = LinkedList()
+        ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+        ll.insert_at_end({'id': 2, 'username': 'mik.roz'})
+        ll.insert_at_end({'id': 3, 'username': 'mosh_s'})
+        ll.insert_beginning({'id': 0, 'username': 'serebro'})
+        self.assertEqual(ll.to_list(), [{'id': 0, 'username': 'serebro'},
+                                       {'id': 1, 'username': 'lazzy508509'},
+                                       {'id': 2, 'username': 'mik.roz'},
+                                       {'id': 3, 'username': 'mosh_s'}])
+
+    def test_ll_get_data_by_id_good(self):
+        ll = LinkedList()
+        ll.insert_at_end({'id': 3, 'username': 'mosh_s'})
+        ll.insert_beginning({'id': 0, 'username': 'serebro'})
+        self.assertEqual(ll.get_data_by_id(3), {'id': 3, 'username': 'mosh_s'})
+
+    def test_ll_get_data_by_id_bad(self):
+        with self.assertRaises(Exception) as exp:
+            ll = LinkedList()
+            ll.insert_at_end({'id': 3, 'username': 'mosh_s'})
+            ll.insert_beginning('blablabla')
+            ll.get_data_by_id(4)
+            self.assertTrue("Данные не являются словарем или в словаре нет id." in exp.exception)
