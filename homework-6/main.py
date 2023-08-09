@@ -1,7 +1,6 @@
 from src.linked_list import LinkedList
 
 if __name__ == '__main__':
-    # Создаем и наполняем односвязный список
     ll = LinkedList()
 
     ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
@@ -9,7 +8,6 @@ if __name__ == '__main__':
     ll.insert_at_end({'id': 3, 'username': 'mosh_s'})
     ll.insert_beginning({'id': 0, 'username': 'serebro'})
 
-    # метод to_list()
     lst = ll.to_list()
     for item in lst: print(item)
     # {'id': 0, 'username': 'serebro'}
@@ -17,11 +15,9 @@ if __name__ == '__main__':
     # {'id': 2, 'username': 'mik.roz'}
     # {'id': 3, 'username': 'mosh_s'}
 
-    # метод get_data_by_id()
     user_data = ll.get_data_by_id(3)
     assert user_data == {'id': 3, 'username': 'mosh_s'}
 
-    # работа блока try/except
     ll = LinkedList()
     ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
     ll.insert_at_end('idusername')
